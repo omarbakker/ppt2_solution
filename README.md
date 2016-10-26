@@ -39,7 +39,7 @@ In a different universe, on a planet called Middle Earth, the Queen of Gondor wa
 
 There are many cities in the kingdom, and they are connected by the Numenorian Roads. These roads do not obey the physical laws of our universe. So, if a road exists between cities A and B, and a road exists between cities C and D, then it takes the same amount of time to get to A from B (or vice versa) as it would take to go from C to D (or vice versa).
 
-The Queen would however like to select the capital city, let us call this city MT. Let X be the city that takes the longest time to travel to from MT. The Queen wants to minimize the time it takes to reach X.
+The Queen would however like to select the capital city, let us call this city MT. Let X be the city that takes the longest time to travel to from MT. The Queen wants to minimize the time it takes to reach X. In some sense, the Queen wants a **central** location.
 
 To make the requirement more precise, let us start with _N_ cities, _X[0], ..., X[N-1]_. Suppose we selected city _X[i]_ as the capital then let _t(X[i])_ be the maximum time it takes to travel from _X[i]_ to any of the other cities. The goal is to select _X[i]_ such that _t(X[i]) <= t(X[j])_ for all _j_ in _0 .. N-1_.
 
@@ -61,12 +61,16 @@ You want to use this information and determine the set of potential locations fo
 	+ Returns: a set with 0, 1, and 2.
 + `roadNetwork = "111110101"` and `n=3`
 	+ Returns: a set with 0.
+	+ One can reach all cities in one step from City 0, but we would need two steps to go from City 1 to City 2 or from City 2 to City 1. The maximum travel time from City 0 to every part of the kingdom is only 1 step, whereas the maximum travel time from the other cities is 2 steps.
 + `roadNetwork = "1101 1111 0111 1111".replaceAll("\\s","")` and `n=4`
 	+ Returns: a set with 1 and 3.
+	+ One can reach every city in one step from Cities 1 and 3. From City 0, one can reach City 2 in two steps (either via City 1 or City 3), and the same is true for City 2 (in terms of reaching City 0).
 + `roadNetwork = "11100 11100 11111 00111 00111".replaceAll("\\s","")` and `n=5`
 	+ Returns: a set with 2.
+	+ One can reach every other city in one step from City 2.
 + `roadNetwork = "10101 01110 11110 01111 10011".replaceAll("\\s","")` and `n=5`
 	+ Returns: a set with 0, 1, 2, 3 and 4.
+	+ The maximum travel time from every city is 2 steps. So all cities are equally "central".
 
 ## Go Ahead, Make That a Fibonacci Number
 
@@ -93,7 +97,7 @@ For this implementation, we will consider the Fibonacci sequence to be 0, 1, 1, 
 	+ Both `isPossible_onlyOneDoubling(10, 3)` and `isPossible(10,3)` should return `true`.
 + `n` = 22, `m` = 3
 	+ One can obtain 89 as follows: `((22*2)*2)+1`
-	+ `isPossible_onlyOneDoubling(22, 3)` should return `false` and `isPossible(2,3)` should return `true`.
+	+ `isPossible_onlyOneDoubling(22, 3)` should return `false` and `isPossible(22, 3)` should return `true`.
 + `n` = 6, `m` = 2
 	+ We can obtain 8 as: `(6+1)+1`.
 	+ Both `isPossible_onlyOneDoubling(6, 2)` and `isPossible(6, 2)` should return `true`.
@@ -121,6 +125,7 @@ For this implementation, we will consider the Fibonacci sequence to be 0, 1, 1, 
 + You do not need to implement new classes.
 + You can use additional standard Java libraries by importing them.
 + Do not throw new exceptions unless the specification for the method permits exceptions.
++ **You will receive no credit if any part of your submission fails to compile.** Make sure that you only use standard Java libraries (your import statements should begin with `java.<>`; for example `java.util.Set` is fine).
 
 ## Answers to FAQs
 
