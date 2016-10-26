@@ -35,13 +35,13 @@ By submitting your work to Github you agree to the following:
 
 > The skeleton source code for this question is in the package `beaconsOfGondor`. You have to implement the methods `getGoodLocations` in the class `LocateMinasTirith`.
 
-In a different universe, on a planet called Middle Earth, the Queen of Gondor wants to find the a suitable location for his capital city.
+In a different universe, on a planet called Middle Earth, the Queen of Gondor wants to find the a suitable location for her capital city.
 
 There are many cities in the kingdom, and they are connected by the Numenorian Roads. These roads do not obey the physical laws of our universe. So, if a road exists between cities A and B, and a road exists between cities C and D, then it takes the same amount of time to get to A from B (or vice versa) as it would take to go from C to D (or vice versa).
 
 The Queen would however like to select the capital city, let us call this city MT. Let X be the city that takes the longest time to travel to from MT. The Queen wants to minimize the time it takes to reach X.
 
-To make the requirement more precise, let us start with _N_ cities, _X[0], ..., X[N-1]_. Suppose we selected city _X[i]_ as the capital then let _t(X[i])_ be the maximum time it takes to travel from _X[i]_ to any of the other cities. The goal is to select _X[j]_ such that _t(X[j]) <= t(X[i])_ for all _i_ in _0 .. N-1_.
+To make the requirement more precise, let us start with _N_ cities, _X[0], ..., X[N-1]_. Suppose we selected city _X[i]_ as the capital then let _t(X[i])_ be the maximum time it takes to travel from _X[i]_ to any of the other cities. The goal is to select _X[i]_ such that _t(X[i]) <= t(X[j])_ for all _j_ in _0 .. N-1_.
 
 It is possible that more than one city meets this requirement so we want to identify the set of such cities. Then the Queen can use other criteria to locate the capital.
 
