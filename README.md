@@ -41,13 +41,13 @@ There are many cities in the kingdom, and they are connected by the Numenorian R
 
 The Queen would however like to select the capital city, let us call this city MT. Let X be the city that takes the longest time to travel to from MT. The Queen wants to minimize the time it takes to reach X. In some sense, the Queen wants a **central** location.
 
-To make the requirement more precise, let us start with _N_ cities, _X[0], ..., X[N-1]_. Suppose we selected city _X[i]_ as the capital then let _t(X[i])_ be the maximum time it takes to travel from _X[i]_ to any of the other cities. The goal is to select _X[i]_ such that _t(X[i]) <= t(X[j])_ for all _j_ in _0 .. N-1_.
+To make the requirement more precise, let us start with _N_ cities, _X[0], ..., X[N-1]_. Let _t(X[i,j])_ be the time it takes to travel to _X[j]_ from _X[i]_. We can then define _t(X[i])_ as _max{t(X[i,1]), t(X[i,2]), ..., t(X[i,n-1])}_ (maximum value from the set of travel times).
 
-It is possible that more than one city meets this requirement so we want to identify the set of such cities. Then the Queen can use other criteria to locate the capital.
+The goal is to select _X[i]_ such that _t(X[i]) <= t(X[j])_ for all _j_ in _0 .. N-1_ (minimize the maximum travel time over all the cities). It is possible that more than one city meets this requirement so we want to identify the set of such cities. Then the Queen can use other criteria to locate the capital.
 
-You are provided the road network information as a (potentially long) string, `roadNetwork`, and the number of cities, `n`. For `0 <= i < n` and `j <= 0 < n`, the character at position `n*i+j` in the string tells us if there is a road from city _X[i]_ to city _X[j]_. There is a `1` in that position if there is a road and a `0` otherwise. You may assume that there is always a road from _X[i]_ to itself and that `n*i+i` is always a `1`.
+You are provided the road network information as a (potentially long) string, `roadNetwork`, and the number of cities, `n`. For `0 <= i < n` and `0 <= j < n`, the character at position `n*i+j` in the string tells us if there is a road from city _X[i]_ to city _X[j]_. There is a `1` in that position if there is a road and a `0` otherwise. You may assume that there is always a road from _X[i]_ to itself and that `n*i+i` is always a `1`.
 
-You want to use this information and determine the set of potential locations for the capital. You are to return a set of integers that contains the indices of the cities that are suitable.
+You want to use this information and determine the set of potential locations for the capital. You are to return a set of integers that contains the indices of the cities that are suitable. So, if City 1 is a good choice then the set you return should contain 1.
 
 **The preconditions for the method you have to implement are stated in the skeleton source code.**
 
