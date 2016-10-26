@@ -41,7 +41,7 @@ There are many cities in the kingdom, and they are connected by the Numenorian R
 
 The Queen would however like to select the capital city, let us call this city MT. Let X be the city that takes the longest time to travel to from MT. The Queen wants to minimize the time it takes to reach X. In some sense, the Queen wants a **central** location.
 
-To make the requirement more precise, let us start with _N_ cities, _X[0], ..., X[N-1]_. Let _t(X[i,j])_ be the time it takes to travel to _X[j]_ from _X[i]_. We can then define _t(X[i])_ as _max{t(X[i,1]), t(X[i,2]), ..., t(X[i,n-1])}_ (maximum value from the set of travel times).
+To make the requirement more precise, let us start with _N_ cities, _X[0], ..., X[N-1]_. Let _t(X[i,j])_ be the *shortest time* (here, this is equivalent to using the smallest number of roads) it takes to travel to _X[j]_ from _X[i]_. We can then define _t(X[i])_ as _max{t(X[i,1]), t(X[i,2]), ..., t(X[i,n-1])}_ (maximum value from the set of travel times).
 
 The goal is to select _X[i]_ such that _t(X[i]) <= t(X[j])_ for all _j_ in _0 .. N-1_ (minimize the maximum travel time over all the cities). It is possible that more than one city meets this requirement so we want to identify the set of such cities. Then the Queen can use other criteria to locate the capital.
 
