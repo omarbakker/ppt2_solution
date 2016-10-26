@@ -45,7 +45,7 @@ To make the requirement more precise, let us start with _N_ cities, _X[0], ..., 
 
 It is possible that more than one city meets this requirement so we want to identify the set of such cities. Then the Queen can use other criteria to locate the capital.
 
-You are provided the road network information as a (potentially long) string, `roadNetwork`, and the number of cities, `n`. For `0 <= i < n` and `j <= 0 < n`, the character at position `n*i+j` in the string tells us if there is a road from city _X[i]_ to city _X[j]_. There is a `1` in that position if there is a road and a `0` otherwise. You may assume that there is always a road from _X[i]_ to itself and that `n*i+i` is always a `1`.
+You are provided the road network information as a (potentially long) string, `roadNetwork`, and the number of cities, `n`. For `0 <= i < n` and `0 <= j < n`, the character at position `n*i+j` in the string tells us if there is a road from city _X[i]_ to city _X[j]_. There is a `1` in that position if there is a road and a `0` otherwise. You may assume that there is always a road from _X[i]_ to itself and that `n*i+i` is always a `1`.
 
 You want to use this information and determine the set of potential locations for the capital. You are to return a set of integers that contains the indices of the cities that are suitable.
 
