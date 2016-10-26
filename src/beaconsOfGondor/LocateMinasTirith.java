@@ -17,7 +17,8 @@ public class LocateMinasTirith {
 	 *            numLocations*i+j in this string indicates if there is a road
 	 *            between cities i and j (1 if there is and 0 if there is no
 	 *            road). For all i such that 0 <= numLocations < i, the
-	 *            character at index numLocations*i+i is 1.
+	 *            character at index numLocations*i+i is 1. <strong>The roadNetwork
+	 *            represents a connected graph.</strong>
 	 * @return a set of city indices with the following condition: the maximum
 	 *         travel time from a city (represented by its index) is as small as
 	 *         possible. The travel time from one city to another is the number
