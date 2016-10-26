@@ -73,12 +73,12 @@ You want to use this information and determine the set of potential locations fo
 > The skeleton source code for this question is in the package `fibonacciTransform`. You have to implement the methods `isPossible_onlyOneDoubling` and `isPossible` in the class `FibTransform`.
 
 You are given an integer `n` and you want to determine if it is possible to transform `n` to a Fibonacci number in at most `m` steps, where `m` is also a given bound. At each step, you can:
-* add 1 to the number at hand,
-* or double it (multiply by 2).
+* add 1 to the number at hand (addition step),
+* or multiply it by 2 (doubling step).
 
 Implement two methods:
 
-1. The first method, `isPossible_onlyOneDoubling`, where you check if `n` can be transformed into a Fibonacci number using *at most* one doubling step. The number of steps permitted is at most `m`. **If you complete only this method correctly then you will receive partial credit of 50% for this question.**
+1. The first method, `isPossible_onlyOneDoubling`, where you check if `n` can be transformed into a Fibonacci number using *at most* one doubling step and any number of addition steps. The number of steps permitted is at most `m`. The doubling does not have to be the first or last step (see the examples). **If you complete only this method correctly then you will receive partial credit of 50% for this question.**
 
 2. The second method, `isPossible`, generalizes the earlier method to permit any number of `+ 1` or `* 2` operations as long as the total number of operations is no more than `m`.
 
@@ -108,7 +108,7 @@ For this implementation, we will consider the Fibonacci sequence to be 0, 1, 1, 
 	+ Both `isPossible_onlyOneDoubling(0, 0)` and `isPossible(0, 0)` should return `false`.
 + `n` = 24, `m` = 6.
 	+ 24 can be transformed to 55: `((((24+1)+1)+1)*2)+1`.
-	+ + Both `isPossible_onlyOneDoubling(24, 6)` and `isPossible(24, 6)` should return `true`.
+	+ Both `isPossible_onlyOneDoubling(24, 6)` and `isPossible(24, 6)` should return `true`.
 + `n` = 1000, `m` = 18.
 	+ 1000 can be transformed to 514229 in 18 steps with more than one doubling.
 	+ `isPossible_onlyOneDoubling(1000, 18)` should return `false` and `isPossible(1000, 18)` should return `true`.
