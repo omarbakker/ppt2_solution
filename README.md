@@ -125,7 +125,7 @@ For this implementation, we will consider the Fibonacci sequence to be 0, 1, 1, 
 + You do not need to implement new classes.
 + You can use additional standard Java libraries by importing them.
 + Do not throw new exceptions unless the specification for the method permits exceptions.
-+ **You will receive no credit if any part of your submission fails to compile.** Make sure that you only use standard Java libraries (your import statements should begin with `java.<>`; for example `java.util.Set` is fine).
++ **You will receive no credit if any part of your submission fails to compile.** Make sure that you only use standard Java libraries (your import statements should begin with `java.`; for example `java.util.Set` is fine).
 
 ## Answers to FAQs
 
