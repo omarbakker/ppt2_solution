@@ -82,7 +82,7 @@ You are given an integer `n` and you want to determine if it is possible to tran
 
 Implement two methods:
 
-1. The first method, `isPossible_onlyOneDoubling`, where you check if `n` can be transformed into a Fibonacci number using *at most* one doubling step and any number of addition steps. The number of steps permitted is at most `m`. The doubling does not have to be the first or last step (see the examples). **If you complete only this method correctly then you will receive partial credit of 50% for this question.**
+1. The first method, `isPossible_onlyOneDoubling`, where you check if `n` can be transformed into a Fibonacci number using *at most* `m` steps in total, and of these steps *at most one can be a doubling step*. The doubling does not have to be the first or last step (see the examples). **If you complete only this method correctly then you will receive partial credit of 50% for this question.**
 
 2. The second method, `isPossible`, generalizes the earlier method to permit any number of `+ 1` or `* 2` operations as long as the total number of operations is no more than `m`.
 
