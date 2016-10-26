@@ -53,19 +53,19 @@ You want to use this information and determine the set of potential locations fo
 
 ### Examples
 
-+ `roadNetwork = 1` and `n=1`.
++ `roadNetwork = "1"` and `n=1`.
 	+ Returns: a set with 0.
-+ `roadNetwork = 1111` and `n=2`
++ `roadNetwork = "1111"` and `n=2`
 	+ Returns: a set with 0 and 1.
-+ `roadNetwork = 111111111` and `n=3`
++ `roadNetwork = "111111111"` and `n=3`
 	+ Returns: a set with 0, 1, and 2.
-+ `roadNetwork = 111110101` and `n=3`
++ `roadNetwork = "111110101"` and `n=3`
 	+ Returns: a set with 0.
 + `roadNetwork = "1101 1111 0111 1111".replaceAll("\\s","")` and `n=4`
 	+ Returns: a set with 1 and 3.
 + `roadNetwork = "11100 11100 11111 00111 00111".replaceAll("\\s","")` and `n=5`
 	+ Returns: a set with 2.
-+ `roadNetwork = 10101 01110 11110 01111 10011".replaceAll("\\s","")` and `n=5`
++ `roadNetwork = "10101 01110 11110 01111 10011".replaceAll("\\s","")` and `n=5`
 	+ Returns: a set with 0, 1, 2, 3 and 4.
 
 ## Go Ahead, Make That a Fibonacci Number
@@ -84,6 +84,8 @@ Implement two methods:
 
 See the skeleton code for preconditions for these methods. We are only interested in Fibonacci numbers that can be represented using the Java types `Integer` or `int`.
 
+For this implementation, we will consider the Fibonacci sequence to be 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+
 ### Examples
 
 + `n` = 10, `m` = 3
@@ -92,6 +94,9 @@ See the skeleton code for preconditions for these methods. We are only intereste
 + `n` = 22, `m` = 3
 	+ One can obtain 89 as follows: `((22*2)*2)+1`
 	+ `isPossible_onlyOneDoubling(22, 3)` should return `false` and `isPossible(2,3)` should return `true`.
++ `n` = 6, `m` = 2
+	+ We can obtain 8 as: `(6+1)+1`.
+	+ Both `isPossible_onlyOneDoubling(6, 2)` and `isPossible(6, 2)` should return `true`.
 + `n` = 8, `m` = 10
 	+ 8 is already a Fibonacci number. No transformation steps are needed.
 	+ Both `isPossible_onlyOneDoubling(8,10)` and `isPossible(8,10)` should return `true`.
