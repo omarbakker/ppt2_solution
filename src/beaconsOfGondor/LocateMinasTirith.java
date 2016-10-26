@@ -30,20 +30,4 @@ public class LocateMinasTirith {
 		return null; // change this
 	}
 
-	public static void main(String[] args) {
-
-		// String connectivityInfo = "1101 1111 0111 1111".replaceAll("\\s","");
-		// String connectivityInfo = "11100 11100 11111 00111
-		// 00111".replaceAll("\\s","");
-		String connectivityInfo = "10101 01110 11110 01111 10011".replaceAll("\\s", "");
-		// String connectivityInfo = "110000 111000 011110 001111 000110
-		// 000101".replaceAll("\\s", "");
-		int numLocations = (int) Math.sqrt(connectivityInfo.length());
-		Set<Integer> goodLocations = getGoodLocations(numLocations, connectivityInfo);
-
-		for (Integer l : goodLocations)
-			System.out.println(l);
-
-	}
-
 }
