@@ -1,7 +1,16 @@
 package beaconsOfGondor;
 
 import java.util.Set;
+
+
+import ca.ubc.ece.cpen221.mp3.staff.Graph;
+import ca.ubc.ece.cpen221.mp3.staff.Vertex;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class LocateMinasTirith {
 
@@ -27,8 +36,89 @@ public class LocateMinasTirith {
 	 *         is farthest from it in terms of number of roads traversed.
 	 */
 	public static Set<Integer> getGoodLocations(int numLocations, String roadNetwork) {
-		// TODO: Implement this method
-		return null; // change this
+
+		Graph cities = generateGraph(roadNetwork, numLocations);
+		List<Vertex> vList = cities.getVertices();
+		List<Integer> maxShortestPaths = new ArrayList<Integer>();
+		Set<Integer> candidates = new HashSet<Integer>();
+		
+		// get all travel times (shortest paths to other cities) for a given city i
+		// get the max of those times
+		// return the city with the largest max n, or a list of cities if they share a max n.
+		
+		for (int i = 0; i < numLocations; i++){
+			Vertex xi = vList.get(i);
+			List<Integer> pathLengths = new ArrayList<Integer>();
+			for (int j = 0; j < numLocations; j++){
+				Vertex xj = vList.get(j);
+				int shortestPath = shortestDistance(cities,xi,xj);
+				pathLengths.add(shortestPath);
+			}
+			// put the max of pathlength inside 
+			int max = 0;
+			for (int xij:pathLengths){
+				if (xij > max)
+					max = xij;
+			}
+			maxShortestPaths.add(max);
+		}
+		
+		// find the max of maxShortestPaths
+		int min = Integer.MAX_VALUE;
+		for (int xij:maxShortestPaths){
+			if (xij < min)
+				min = xij;
+		}
+		
+		int index = 0;
+		for (int xij:maxShortestPaths){
+			if (xij == min)
+				candidates.add(index);
+			index++;
+		}
+		
+		return candidates; 
 	}
 
+	public static Graph generateGraph(String roadNetwork, int n){
+		Graph graph = new AdjacencyMatrixGraph();
+		for (int i = 0; i < n; i++)
+			graph.addVertex(new Vertex(new Integer(i).toString()));
+		
+		List<Vertex> vList = graph.getVertices();
+		for (int i = 0; i < n; i++){
+			for (int j = 0; j < n; j++){
+				boolean edgeExists = roadNetwork.charAt(n*i+j) == '1';
+				if (edgeExists)
+					graph.addEdge(vList.get(i), vList.get(j));
+			}
+		}
+		return graph;
+	}
+
+	
+	public static int shortestDistance(Graph graph, Vertex a, Vertex b) {
+		Queue<Vertex> bfsQueue = new LinkedList<Vertex>();
+		List<Vertex> visited = new LinkedList<Vertex>();
+		List<Integer> distances = new LinkedList<Integer>(); 
+		visited.add(a);
+		distances.add(0);
+		bfsQueue.add(a);
+		
+		if (a.equals(b)) return 0;
+		while (!bfsQueue.isEmpty()){
+			Vertex v = bfsQueue.remove();
+			
+			int currentDistance = distances.get(visited.indexOf(v)) + 1;
+			for (Vertex neighbour:graph.getDownstreamNeighbors(v))
+				if (!visited.contains(neighbour)){
+					if (neighbour.equals(b)) return currentDistance;
+					visited.add(neighbour);
+					distances.add(currentDistance);
+					bfsQueue.add(neighbour);
+				}
+		}
+		return -1;
+	}
+	
 }
