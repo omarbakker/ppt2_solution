@@ -83,12 +83,5 @@ public class FibTransform {
 	        return false;
 	}
 	
-	public static void main(String[] args){
-		for (int i = 0; i < 1000; i++){
-			if (isFib(i)){
-				System.out.println(i);
-			}
-		}
-	}
-	
+
 }

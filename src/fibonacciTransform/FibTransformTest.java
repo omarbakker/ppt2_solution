@@ -30,10 +30,10 @@ public class FibTransformTest {
 	public void test_0_0() {
 		assertEquals(true, FibTransform.isPossible_onlyOneDoubling(0, 0));
 	}
-
+	
 	@Test
 	public void test_20_0() {
-		assertEquals(false, FibTransform.isPossible_onlyOneDoubling(0, 0));
+		assertEquals(false, FibTransform.isPossible_onlyOneDoubling(20, 0));
 	}
 
 	@Test
