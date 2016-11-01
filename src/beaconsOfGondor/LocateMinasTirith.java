@@ -3,9 +3,6 @@ package beaconsOfGondor;
 import java.util.Set;
 
 
-import ca.ubc.ece.cpen221.mp3.staff.Graph;
-import ca.ubc.ece.cpen221.mp3.staff.Vertex;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;

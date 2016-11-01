@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import ca.ubc.ece.cpen221.mp3.staff.Graph;
-import ca.ubc.ece.cpen221.mp3.staff.Vertex;
 
 public class AdjacencyMatrixGraph implements Graph {
 
